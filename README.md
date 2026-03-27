@@ -1,83 +1,154 @@
-1 - Instalando o JSON Server
-npm i json-server@1.0.0-alpha.21
+🧠 📅 O QUE O PROJETO FAZ <br>
 
-2 - Adicionando o arquivo .gitignore
-node_modules
+👉 O HairDay é uma aplicação web de agendamento de horários. <br>
 
-3 - Adicionando scripts ao arquivo package.json:
+Funcionalidades: <br>
+	•	📅 Selecionar uma data <br>
+	•	⏰ Escolher horário disponível <br>
+	•	👤 Informar nome do cliente <br>
+	•	💾 Salvar agendamento (API fake com JSON Server) <br>
+	•	📋 Listar agendamentos por dia <br>
+	•	🗂️ Separar por período: <br>
+	•	Manhã <br>
+	•	Tarde <br>
+	•	Noite <br>
+	•	❌ Cancelar agendamento <br>
 
-A - Propriedades de descrição do prjeto
-"name": "hairday",
-"description": "Aplicação Web de agendamento para corte de cabelo",
-"author": "Dayson Rodrigues",
 
-B - Scripts
-"scripts":{
-  "server" : "json-server --watch server.json --port 3333"
-},
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+<body>
 
-4 - Criar o arquivo server.json que será onde ficara salva os agendamentos
+  <h1>💇 HairDay - Sistema de Agendamento</h1>
 
-5 - deixar criado a rota no server.json
+  <h2>📌 Descrição</h2>
+  <p>
+    Aplicação web para agendamento de cortes de cabelo.
+    Permite criar, visualizar e organizar horários por período (manhã, tarde e noite).
+  </p>
+
+  <h2>⚙️ Tecnologias Utilizadas</h2>
+  <ul>
+    <li>JavaScript</li>
+    <li>Webpack</li>
+    <li>JSON Server (API fake)</li>
+    <li>Babel</li>
+    <li>Dayjs</li>
+    <li>CSS</li>
+  </ul>
+
+  <h2>🚀 Configuração do Projeto</h2>
+
+  <h3>1. Instalar JSON Server</h3>
+  <pre>npm i json-server@1.0.0-alpha.21</pre>
+
+  <h3>2. Criar .gitignore</h3>
+  <pre>node_modules</pre>
+
+  <h3>3. Configurar package.json</h3>
+  <pre>
 {
-  "schedules" : []
+  "name": "hairday",
+  "description": "Aplicação Web de agendamento para corte de cabelo",
+  "author": "Dayson Rodrigues",
+  "scripts": {
+    "server": "json-server --watch server.json --port 3333",
+    "build": "webpack",
+    "dev": "webpack serve"
+  }
 }
+  </pre>
 
-6 - Testar rodando 
-npm run server
+  <h3>4. Criar arquivo server.json</h3>
+  <pre>
+{
+  "schedules": []
+}
+  </pre>
 
-7 - Instalando o Webpack e criar os arquivos de configurações
-npm i webpack@5.89.0 webpack-cli@5.1.4 --save-dev
-A - Acrecentar no package.json "build":"webpack"
+  <h3>5. Rodar servidor</h3>
+  <pre>npm run server</pre>
 
-8 - Dentro da pasta src Criar o arquivo de entrada do js main.js
+  <h3>6. Instalar Webpack</h3>
+  <pre>npm i webpack webpack-cli --save-dev</pre>
 
-9 - Na raiz do projeto criar o arq webpack.config.js
-*Pegar o modelo deste arquivo ja pronto
+  <h3>7. Criar arquivo de entrada</h3>
+  <pre>src/main.js</pre>
 
-10 - Fazer a instalação do server do webpack
-npm i webpack-dev-server@4.15.1 --save-dev
+  <h3>8. Criar webpack.config.js</h3>
+  <p>Utilizar modelo padrão de configuração</p>
 
-11 - Adicionando scripts ao arquivo package.json:
-"dev":"webpack serve",
+  <h3>9. Instalar Webpack Dev Server</h3>
+  <pre>npm i webpack-dev-server --save-dev</pre>
 
-12 - Carregando o HTML no webpack
-npm i html-webpack-plugin@5.6.0 --save-dev
+  <h3>10. HTML Plugin</h3>
+  <pre>npm i html-webpack-plugin --save-dev</pre>
 
-13 - Carregando o fivIcon
+  <h3>11. CSS Loader</h3>
+  <pre>npm i style-loader css-loader --save-dev</pre>
 
-14 - Instalando o style-loader
-npm i style-loader@3.3.3 css-loader@6.8.1 --save-dev
-
-15 - Ajustar o arquivo main
+  <h3>12. Importar CSS no main.js</h3>
+  <pre>
 "use strict"
-//css
+
 import "./styles/global.css"
 import "./styles/form.css"
 import "./styles/schedule.css"
+  </pre>
 
-16 - Copiando os assets
-npm i copy-webpack-plugin@11.0.0 --save-dev
+  <h3>13. Copiar Assets</h3>
+  <pre>npm i copy-webpack-plugin --save-dev</pre>
 
-17 - Instalação do Babel
-npm i babel-loader@9.1.3 @babel/core@7.23.7 @babel/preset-env@7.23.7 --save-dev
+  <h3>14. Babel</h3>
+  <pre>
+npm i babel-loader @babel/core @babel/preset-env --save-dev
+  </pre>
 
-
-//EXECUTANDO//
+  <h3>15. Executar projeto</h3>
+  <pre>
 npm run build
 npm run server
-npm run dev -> em outro terminal
+npm run dev
+  </pre>
 
-18 - Adicionando 
-npm i dayjs@1.11.10
+  <h3>16. Instalar Dayjs</h3>
+  <pre>npm i dayjs</pre>
 
-19 - criando a pasta libs para adicionar as bibliotecas
+  <h2>📂 Estrutura do Projeto</h2>
+  <pre>
+src/
+ ├── main.js
+ ├── styles/
+ ├── services/
+ │    ├── api-config.js
+ │    ├── schedule-new.js
+ │    ├── schedule-fetch-by-day.js
+ ├── libs/
+ └── assets/
+  </pre>
 
+  <h2>🔌 API (JSON Server)</h2>
 
-----------------------------------------------------------
-CRIANDO E CONSUMINDO A API
-1 - Criei a pasta services em src
-2 - Criei o arquivo api-config.js onde ficara a URL de acesso API
-3 - Criei o arquivo schedule-new.js para cadastrar novos agendamentos 
-4 - Importei schedule-new.js no arquivo submit.js para utilizar a função de cadastro de agendamentos
-5 - Criei a schedule-fetch-by-day.js para filtrar os agendamentos por dia
+  <h3>Base URL</h3>
+  <pre>http://localhost:3333</pre>
+
+  <h3>Rotas</h3>
+  <ul>
+    <li>GET /schedules → listar agendamentos</li>
+    <li>POST /schedules → criar agendamento</li>
+  </ul>
+
+  <h2>🧠 Funcionalidades</h2>
+  <ul>
+    <li>Criar agendamento</li>
+    <li>Filtrar por data</li>
+    <li>Separar por período</li>
+    <li>Cancelar agendamento</li>
+  </ul>
+
+</body>
+</html>
